@@ -1,0 +1,63 @@
+body
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    flex-direction: column;
+    gap: 30px;
+}
+#list
+{
+ display: flex;
+    justify-content: space-around;
+    align-items: flex-start; 
+    gap: 100px;
+    width: 100vw;
+}
+.box
+{ 
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+}
+#input
+{
+background-color: white;
+height: 150px;
+width:300px;
+text-align: center;
+border-radius: 10px;
+}
+#boton
+{
+    display: flex;
+    flex-direction: column;
+}
+#btn
+{
+    height: 20px;
+    margin: 1px 15px;
+    background-color: purple;
+    border: none;
+    color: white;
+}
+#in_main
+{
+    margin: 1px 15px;
+}
+.item
+{
+    background-color: pink;
+    color: black;
+    border-radius: 5px;
+     margin: 0;
+     height: 30px;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+padding: 10px 10px 10px 10px;
+}
