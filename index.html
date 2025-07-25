@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport">
+    <meta name="description" content="bisher">
+  <meta name="keywords" content="bisher">
+    <title>try45</title>
+    <style>
+body
+{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+    flex-direction: column;
+    gap: 30px;
+}
+#list
+{
+ display: flex;
+    justify-content: space-around;
+    align-items: flex-start; 
+    gap: 100px;
+    width: 100vw;
+}
+.box
+{ 
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    width: 150px;
+    text-align: center;
+}
+#input
+{
+background-color: white;
+height: 150px;
+width:300px;
+text-align: center;
+border-radius: 10px;
+}
+#boton
+{
+    display: flex;
+    flex-direction: column;
+}
+#btn
+{
+    height: 20px;
+    margin: 1px 15px;
+    background-color: purple;
+    border: none;
+    color: white;
+}
+#in_main
+{
+    margin: 1px 15px;
+}
+.item
+{
+    background-color: pink;
+    color: black;
+    border-radius: 5px;
+     margin: 0;
+     height: 30px;
+     text-align: center;
+     display: flex;
+     justify-content: center;
+padding: 10px 10px 10px 10px;
+}
+<style>
+</head>
+<body>
+<div id="input">
+<h1> inter text</h1>
+<div id="boton">
+    <input type="text" id="in_main">
+    <button id="btn">add</button>
+</div>
+</div>
+<div id="list">
+    <div class="box">
+       <h2>box</h2>
+        
+    </div>
+    <div class="box">
+        <h2>box</h2>
+    </div>
+    <div class="box">
+        <h2>box</h2>
+    </div>
+    <div class="box">
+        <h2>box</h2>
+    </div>
+</div>
+<script>
+let box = document.querySelectorAll('.box')
+let input = document.getElementById('input')
+let boton = document.getElementById('boton')
+let in_main = document.getElementById('in_main')
+let list = document.getElementById('list')
+let btn = document.getElementById('btn')
+let drag =null;
+btn.onclick=function()
+{
+    if(in_main.value !='')
+{
+    box[0].innerHTML +=
+    `
+    <p class="item" draggable="true">${in_main.value}</p>
+    `
+    in_main.value=''
+}
+dragItem();
+}
+function dragItem()
+{
+    let Items = document.querySelectorAll('.item')
+    Items.forEach(item=>
+        {
+item.addEventListener('dragstart',function()
+    {
+drag=item;
+    }
+)
+item.addEventListener('dragend',function()
+    {
+drag=null;
+    }
+)
+box.forEach(boxs=>
+{
+    boxs.addEventListener('dragover',function(e)
+{
+    e.preventDefault()
+    this.style.background = 'green'
+    this.style.color = 'red'
+}
+)
+boxs.addEventListener('dragleave',function()
+{
+this.style.background = 'white'
+    this.style.color = 'black'
+}
+)
+boxs.addEventListener('drop',function()
+{
+    boxs.append(drag);
+    this.style.background = 'white'
+    this.style.color = 'black'
+}
+)
+}
+)
+} 
+) 
+}
+</script>
+</body>
+</html>
